@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/README.md" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/python/controller/api.py" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/python/db/queries/country_queries.py" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/python/services/create_data.py" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/python/services/person_controller.py" dialect="MySQL" />
+  </component>
+</project>
