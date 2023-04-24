@@ -17,6 +17,14 @@ Para la documentación de la API, usaremos:
 - Swagger 0.1.0
 
 ## SQL Database
+### Installation
+
+Se debe instalar MySQL en el equipo donde se ejecutara la aplicación, para ello se puede descargar desde el siguiente enlace: [MySQL](https://dev.mysql.com/downloads/mysql/), en este caso se utilizo la version 8.0.19.
+Donde se debe crear una base de datos llamada `technical_test` y un usuario con los siguientes datos:
+- user: `root`
+- password: `Nemoujaja`
+
+### Database model
 De acuerdo al modelo de datos suministrado, se recomienda incluir mas tablas con el fin de normalizar la DB para poder evitar la duplicidad de informacion, por ejemplo:
 -  En la tabla `person` se incluye el campo `nationality` como `FK` de la tabla `country`, para poder saber que personas son de que pais y evitar que en el front esto sea un campo libre, pero tambien se puede crear una tabla `nationality` y hacer la relación con la tabla `person` y `country`.
 - En la tabla `person` se incluye el campo `current_occupation` como `FK` de la tabla `occupation`, para saber cual es la ocupacion de cada usuario.
@@ -24,7 +32,6 @@ De acuerdo al modelo de datos suministrado, se recomienda incluir mas tablas con
 - En la tabla `person` se incluye el campo `education_level` como `FK` de la tabla `education_level`, para saber el nivel de educacion de cada usuario. 
 
 En la solucion planteada se inluyeron nuevas tablas y relaciones entre las mimas, en vista de lo anterior, la base de datos quedo normalizada de la siguiente manera:
-
 
 ![](./readmi/sql_model.png)
 
