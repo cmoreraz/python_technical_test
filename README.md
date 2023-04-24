@@ -189,6 +189,8 @@ insert into gender (name)
 values ('Male'), ('Female'), ('Other');
 ```
 
+Esta base de datos permite almacenar información de personas, sus relaciones familiares, sus cuentas de redes sociales, sus propiedades (casa) y la ubicación, entre otros.
+
 ## Structure of the project
 ![](./readmi/proyecto.png)
 
