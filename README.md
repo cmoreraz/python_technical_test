@@ -4,6 +4,30 @@
 
 This is a technical test for Python developers. It is designed to test your ability to write clean, maintainable code and to demonstrate your understanding of Python.
 
+## Instructions
+
+### Prerequisites
+- Python 3.11.2
+
+### Installation
+1. Create and activate virtual environment
+   ```sh
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+2. Install requirements
+   ```sh
+   pip install -r requirements.txt
+   ```
+3. Execute the following command to run the application
+   ```sh
+   uvicorn main:app --reload
+   ```
+4. Execute tests
+   ```sh
+   pytest
+   ```
+   
 ## Tecnologies used
 Durante la construcción de este proyecto, creamos una aplicación mediante una arquitectura REST, como framework usaremos:
 - FastAPI 0.95.1
@@ -31,7 +55,7 @@ De acuerdo al modelo de datos suministrado, se recomienda incluir mas tablas con
 - En la tabla `person` se incluye el campo `marital_status` como `FK` de la tabla `marital_status`, para saber el estado civil de cada usuario.
 - En la tabla `person` se incluye el campo `education_level` como `FK` de la tabla `education_level`, para saber el nivel de educacion de cada usuario. 
 
-En la solucion planteada se inluyeron nuevas tablas y relaciones entre las mimas, en vista de lo anterior, la base de datos quedo normalizada de la siguiente manera:
+En la solucion planteada se inluyeron nuevas tablas y relaciones entre las mismas, en vista de lo anterior, la base de datos quedo normalizada de la siguiente manera:
 
 ![](./readmi/sql_model.png)
 
@@ -192,6 +216,57 @@ values ('Male'), ('Female'), ('Other');
 Esta base de datos permite almacenar información de personas, sus relaciones familiares, sus cuentas de redes sociales, sus propiedades (casa) y la ubicación, entre otros.
 
 ## Structure of the project
+```bash
+├── README.md
+├── requirements.txt
+├── src
+│   ├── python
+│   │   ├── __init__.py
+│   │   │   ├── commons
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── messages.py
+│   │   │   │   ├── request_api.py
+│   │   │   │   ├── response.py
+│   │   │   ├── controller
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── api.py
+│   │   │   ├── db
+│   │   │   │   ├── database.py
+│   │   │   │   ├── execute_query.py
+│   │   │   │   ├── __init__.py
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   ├── country_queries.py
+│   │   │   ├── middlewares
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── error_handler.py
+│   │   │   ├── models
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── city.py
+│   │   │   │   ├── country.py
+│   │   │   │   ├── education_level.py
+│   │   │   │   ├── gender.py
+│   │   │   │   ├── marital_status.py
+│   │   │   │   ├── occupation.py
+│   │   │   │   ├── person.py
+│   │   │   ├── routers
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── router_country.py
+│   │   │   │   ├── router_home.py
+│   │   │   │   ├── router_person.py
+│   │   │   ├── schedule
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── create_home.py
+│   │   │   ├── services
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── cities.py
+│   │   │   │   ├── countries.py
+│   │   │   │   ├── create_data.py
+│   │   │   │   ├── person_controller.py
+│   ├── test
+│   │   ├── __init__.py
+│   │   │   ├── test_api.py
+```
+
 ![](./readmi/proyecto.png)
 
 ## Cron Job 
@@ -260,6 +335,9 @@ Y se debe enviar el siguiente body:
 
 Para diligenciar la tabla person, se consume el siguiente servicio:
 ```http request
+POST /users
+HTTP/1.1
+Host: https://jsonplaceholder.typicode.com
 ```
 
 ## API´s
@@ -435,27 +513,3 @@ CALL put_delete_person(d_id);
     "data": 4
 }
 ```
-
-## Instructions
-
-### Prerequisites
-- Python 3.11.2
-
-### Installation
-1. Create and activate virtual environment
-   ```sh
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-2. Install requirements
-   ```sh
-   pip install -r requirements.txt
-   ```
-3. Execute the following command to run the application
-   ```sh
-   uvicorn main:app --reload
-   ```
-4. Execute tests
-   ```sh
-   pytest
-   ```
